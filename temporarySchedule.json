@@ -5,15 +5,23 @@
             "date": 1,
             "time": 12,
             "type": "lecture",
-            "code": "CS Lecture",
-            "name": "CSB 451"
+            "code": "[Lecture]",
+            "name": "CSB 451",
+			"message": {
+				"EN": "CS Guest Lecture",
+				"CH": "TBD"
+			}
         },
         {
             "date": 3,
             "time": 12,
             "type": "lecture",
-            "code": "CS Lecture",
-            "name": "CSB 451"
+            "code": "[Lecture]",
+            "name": "CSB 451",
+			"message": {
+				"EN": "CS Guest Lecture",
+				"CH": "TBD"
+			}
         }
     ],
     "backup": []
