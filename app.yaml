@@ -1,0 +1,8 @@
+runtime: php83
+
+instance_class: F1
+entrypoint: serve --workers=2 --enable-dynamic-workers ./app_index.php
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 2

@@ -1,29 +1,20 @@
 {
-    "notice": "<i>This is my notice!</i>",
+    "notice": "",
     "schedule": [
         {
             "date": 1,
-            "time": 17,
-            "type": "activities",
-            "code": "",
-            "name": "",
-            "message": {
-                "EN": "",
-                "CH": ""
-            }
+            "time": 12,
+            "type": "lecture",
+            "code": "CS Lecture",
+            "name": "CSB 451"
         },
         {
-            "date": 5,
-            "time": 18,
-            "type": "free",
-            "code": "",
-            "name": "",
-            "message": {
-                "EN": "",
-                "CH": ""
-            }
+            "date": 3,
+            "time": 12,
+            "type": "lecture",
+            "code": "CS Lecture",
+            "name": "CSB 451"
         }
     ],
-    "backup": [
-    ]
+    "backup": []
 }

@@ -1,4 +1,6 @@
 <?php
+    include_once("Event.php");
+
     class Schedule {
         protected $sysBase;
         protected $weekvalue;
@@ -17,6 +19,7 @@
 
             //Step 1: Read json files
             $regSchedule = "$this->sysBase/regularSchedule.json";
+            $this->modifiedDate = filemtime($regSchedule);
 
             $json_string = file_get_contents($regSchedule);
             $decode_string = json_decode($json_string, true);
