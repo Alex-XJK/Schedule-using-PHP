@@ -4,8 +4,10 @@
             echo "Welcome to the Alex's PHP Web App!";
             break;
         case '/info':
-            echo "PHP Version: " . phpversion() . "<br>";
-            echo "User's IP: " . $_SERVER['HTTP_X_APPENGINE_USER_IP'] ?? 'Unknown' . "<br>";
+            include_once("utils.php");
+            $tz_res = getUserTimezone();
+            $tz_res['php_version'] = phpversion();
+            echo json_encode($tz_res, JSON_PRETTY_PRINT);
             break;
         case '/schedule':
             include_once("scheduleInTimezone.php");
