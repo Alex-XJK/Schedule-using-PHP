@@ -1,9 +1,14 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET");
+    header("Access-Control-Allow-Headers: Content-Type");
+
     switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         case '/':
             echo "Welcome to the Alex's PHP Web App!";
             break;
         case '/info':
+            header('Content-Type: application/json');
             include_once("utils.php");
             $tz_res = getUserTimezone();
             $tz_res['php_version'] = phpversion();
