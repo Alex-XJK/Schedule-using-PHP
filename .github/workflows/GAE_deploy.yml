@@ -1,0 +1,27 @@
+name: GCP AppEngine Deploy
+
+on:
+  push:
+    branches: [ "deployment" ]
+  pull_request:
+    branches: [ "deployment" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GAE_SERVICE_ACCOUNT_KEY }}
+
+      - name: Deploy to App Engine
+        uses: google-github-actions/deploy-appengine@v1
+        with:
+          project_id: ${{ secrets.GAE_PROJECT_ID }}
+          deliverables: app.yaml
