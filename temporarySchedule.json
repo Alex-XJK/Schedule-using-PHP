@@ -2,27 +2,38 @@
     "notice": "",
     "schedule": [
         {
-            "date": 1,
+            "date": 3,
             "time": 12,
             "type": "lecture",
-            "code": "[Lecture]",
+            "code": "Lecture",
             "name": "CSB 451",
 			"message": {
 				"EN": "CS Guest Lecture",
 				"CH": "TBD"
 			}
         },
-        {
-            "date": 3,
-            "time": 12,
-            "type": "lecture",
-            "code": "[Lecture]",
-            "name": "CSB 451",
+		{
+			"date": 3,
+			"time": 17,
+			"type": "subother",
+			"code": "COMS 4995",
+			"name": "MUD 833",
 			"message": {
-				"EN": "CS Guest Lecture",
-				"CH": "TBD"
+				"EN": "<b>C++ For C Programmers</b>",
+				"CH": "Dr. Jaw W Lee<br>17:40 - 18:55"
 			}
-        }
+		},
+		{
+			"date": 3,
+			"time": 18,
+			"type": "subother",
+			"code": "",
+			"name": "",
+			"message": {
+				"EN": "<b>C++ For C Programmers</b>",
+				"CH": "Dr. Jaw W Lee<br>17:40 - 18:55"
+			}
+		}
     ],
     "backup": []
 }
