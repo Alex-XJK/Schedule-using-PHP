@@ -1,4 +1,7 @@
 <?php
+    include_once("Schedule.php");
+    include_once("Event.php");
+
     class ScheduleRemote extends Schedule {
         public function __construct($regSchedule, $tmpSchedule) {
             //Step 0: Set variables

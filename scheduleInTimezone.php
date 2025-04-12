@@ -1,7 +1,10 @@
 <?php
-    include_once("Schedule.php");
+    include_once("ScheduleRemote.php");
 
-    $schedule = new Schedule();
+    $schedule = new ScheduleRemote(
+        "https://raw.githubusercontent.com/Alex-XJK/Schedule-using-PHP/refs/heads/deployment/regularSchedule.json",
+        "https://raw.githubusercontent.com/Alex-XJK/Schedule-using-PHP/refs/heads/deployment/temporarySchedule.json"
+    );
 
     //Dynamic Timezone settings
     if (isset($_GET["zone"])) {

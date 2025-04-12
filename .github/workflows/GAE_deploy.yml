@@ -3,14 +3,24 @@ name: GCP AppEngine Deploy
 on:
   push:
     branches: [ "deployment" ]
+    paths-ignore:
+      - '**/*.json'
   pull_request:
     branches: [ "deployment" ]
+    paths-ignore:
+      - '**/*.json'
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Preparing for deployment..."
+
   deploy:
+    needs: prepare
     runs-on: ubuntu-latest
     environment: production
-
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged != true)
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
