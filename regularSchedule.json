@@ -1,134 +1,35 @@
 {
 	"timezone": -4,
 	"blockOut": {
-		"Sunday":       [0, 1, 2, 3, 4, 5, 6, 7, 23],
-		"Monday":       [0, 1, 2, 3, 4, 5, 6, 7, 23],
-		"Tuesday":      [0, 1, 2, 3, 4, 5, 6, 7, 23],
-		"Wednesday":    [0, 1, 2, 3, 4, 5, 6, 7, 23],
-		"Thursday":     [0, 1, 2, 3, 4, 5, 6, 7, 23],
-		"Friday":       [0, 1, 2, 3, 4, 5, 6, 7, 23],
-		"Saturday":     [0, 1, 2, 3, 4, 5, 6, 7, 23]
+		"Sunday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Monday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Tuesday":      [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Wednesday":    [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Thursday":     [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Friday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Saturday":     [0, 1, 2, 3, 4, 5, 6, 7, 8, 23]
 	},
 	"schedule":[
 		{
+			"date": 2,
+			"time": 13,
+			"type": "placement",
+			"code": "Meeting",
+			"name": "",
+			"message": {
+				"EN": "RL Meeting with Daksh",
+				"CH": "13:00 - 14:00"
+			}
+		},
+		{
 			"date": 4,
 			"time": 14,
-			"type": "discussion",
+			"type": "placement",
 			"code": "Meeting",
-			"name": "Online",
+			"name": "",
 			"message": {
-				"EN": "Group Synchronization Meeting",
+				"EN": "LLM Inference Group Synchronization Meeting",
 				"CH": "14:00 - 15:00"
-			}
-		},
-		{
-			"date": 1,
-			"time": 19,
-			"type": "class",
-			"code": "COMS 4261",
-			"name": "CSB 451",
-			"message": {
-				"EN": "<b>Intro to Cryptography</b>",
-				"CH": "Dr. Allison Bishop<br>19:00 - 21:30"
-			}
-		},
-		{
-			"date": 1,
-			"time": 20,
-			"type": "class",
-			"code": "",
-			"name": "",
-			"message": {
-				"EN": "<b>Intro to Cryptography</b>",
-				"CH": "Dr. Allison Bishop<br>19:00 - 21:30"
-			}
-		},
-		{
-			"date": 1,
-			"time": 21,
-			"type": "class",
-			"code": "",
-			"name": "",
-			"message": {
-				"EN": "<b>Intro to Cryptography</b>",
-				"CH": "Dr. Allison Bishop<br>19:00 - 21:30"
-			}
-		},
-		{
-			"date": 2,
-			"time": 16,
-			"type": "class",
-			"code": "COMS 6998",
-			"name": "SCEP 750",
-			"message": {
-				"EN": "<b>Advanced Spoken Language Processing</b>",
-				"CH": "Prof. Julia Hirschberg<br>16:10 - 18:00"
-			}
-		},
-		{
-			"date": 2,
-			"time": 17,
-			"type": "class",
-			"code": "",
-			"name": "",
-			"message": {
-				"EN": "<b>Advanced Spoken Language Processing</b>",
-				"CH": "Prof. Julia Hirschberg<br>16:10 - 18:00"
-			}
-		},
-		{
-			"date": 5,
-			"time": 12,
-			"type": "class",
-			"code": "COMS 6111",
-			"name": "CSB 451",
-			"message": {
-				"EN": "<b>Advanced Database Systems</b>",
-				"CH": "Prof. Luis Gravano<br>12:10 - 14:00"
-			}
-		},
-		{
-			"date": 5,
-			"time": 13,
-			"type": "class",
-			"code": "",
-			"name": "",
-			"message": {
-				"EN": "<b>Advanced Database Systems</b>",
-				"CH": "Prof. Luis Gravano<br>12:10 - 14:00"
-			}
-		},
-		{
-			"date": 5,
-			"time": 14,
-			"type": "placement",
-			"code": "TA Meeting",
-			"name": "SCEP 624",
-			"message": {
-				"EN": "<b>Operating Systems</b><br>TA Weekly Meeting",
-				"CH": "14:30 - 15:00"
-			}
-		},
-		{
-			"date": 5,
-			"time": 15,
-			"type": "placement",
-			"code": "Office Hours",
-			"name": "CSB 501",
-			"message": {
-				"EN": "<b>Operating Systems</b><br>TA Office Hours",
-				"CH": "15:00 - 16:00"
-			}
-		},
-		{
-			"date": 5,
-			"time": 16,
-			"type": "placement",
-			"code": "",
-			"name": "",
-			"message": {
-				"EN": "<b>Operating Systems</b><br>TA Office Hours",
-				"CH": "cont."
 			}
 		}
 	]
