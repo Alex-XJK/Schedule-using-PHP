@@ -12,6 +12,17 @@
 	"schedule":[
 		{
 			"date": 2,
+			"time": 12,
+			"type": "discussion",
+			"code": "Lab Lunch",
+			"name": "",
+			"message": {
+				"EN": "DAPLab Weekly Lunch",
+				"CH": "12:30 - 13:00"
+			}
+		},
+		{
+			"date": 2,
 			"time": 13,
 			"type": "placement",
 			"code": "Meeting",
@@ -28,7 +39,7 @@
 			"code": "Meeting",
 			"name": "",
 			"message": {
-				"EN": "LLM Inference Group Synchronization Meeting",
+				"EN": "LLM Inference Group Synchronization",
 				"CH": "14:00 - 15:00"
 			}
 		}
