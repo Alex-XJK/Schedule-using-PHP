@@ -15,21 +15,21 @@
 			"time": 12,
 			"type": "discussion",
 			"code": "Lab Lunch",
-			"name": "",
+			"name": "CSB 480",
 			"message": {
 				"EN": "DAPLab Weekly Lunch",
 				"CH": "12:30 - 13:00"
 			}
 		},
 		{
-			"date": 2,
-			"time": 13,
+			"date": 3,
+			"time": 14,
 			"type": "placement",
 			"code": "Meeting",
-			"name": "",
+			"name": "Zoom",
 			"message": {
 				"EN": "RL Meeting with Daksh",
-				"CH": "13:00 - 14:00"
+				"CH": "14:00 - 15:00"
 			}
 		},
 		{
@@ -37,10 +37,21 @@
 			"time": 14,
 			"type": "placement",
 			"code": "Meeting",
-			"name": "",
+			"name": "Google",
 			"message": {
 				"EN": "LLM Inference Group Synchronization",
 				"CH": "14:00 - 15:00"
+			}
+		},
+		{
+			"date": 4,
+			"time": 15,
+			"type": "placement",
+			"code": "Meeting",
+			"name": "MUD 421",
+			"message": {
+				"EN": "AI Forking Group Synchronization",
+				"CH": "15:00 - 16:00"
 			}
 		}
 	]
