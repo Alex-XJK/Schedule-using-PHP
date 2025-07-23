@@ -22,14 +22,36 @@
 			}
 		},
 		{
-			"date": 3,
+			"date": 2,
 			"time": 14,
 			"type": "placement",
 			"code": "Meeting",
 			"name": "Zoom",
 			"message": {
 				"EN": "RL Meeting with Daksh",
-				"CH": "14:00 - 15:00"
+				"CH": "14:30 - 15:30"
+			}
+		},
+		{
+			"date": 2,
+			"time": 15,
+			"type": "placement",
+			"code": "",
+			"name": "",
+			"message": {
+				"EN": "RL Meeting with Daksh",
+				"CH": "14:30 - 15:30"
+			}
+		},
+		{
+			"date": 4,
+			"time": 11,
+			"type": "discussion",
+			"code": "Lab Coffee",
+			"name": "",
+			"message": {
+				"EN": "DAPLab Weekly Coffee",
+				"CH": "11:00 - 11:45"
 			}
 		},
 		{
