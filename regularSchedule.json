@@ -18,11 +18,22 @@
 			"name": "CSB 480",
 			"message": {
 				"EN": "DAPLab Weekly Lunch",
-				"CH": "12:30 - 13:00"
+				"CH": "12:30 - 13:30"
 			}
 		},
 		{
 			"date": 2,
+			"time": 13,
+			"type": "discussion",
+			"code": "",
+			"name": "",
+			"message": {
+				"EN": "DAPLab Weekly Lunch",
+				"CH": "12:30 - 13:30"
+			}
+		},
+		{
+			"date": 3,
 			"time": 14,
 			"type": "placement",
 			"code": "Meeting",
@@ -33,7 +44,7 @@
 			}
 		},
 		{
-			"date": 2,
+			"date": 3,
 			"time": 15,
 			"type": "placement",
 			"code": "",
