@@ -150,10 +150,10 @@
 
                     //Handle over-the-week issue
                     if($inx < 0) {
-                        $inx = $inx + $this->weekvalue;
+                        $inx = $inx + $this->weekValue;
                     }
-                    elseif ($inx >= $this->weekvalue) {
-                        $inx = $inx - $this->weekvalue;
+                    elseif ($inx >= $this->weekValue) {
+                        $inx = $inx - $this->weekValue;
                     }
 
                     //Look up in the array and print
