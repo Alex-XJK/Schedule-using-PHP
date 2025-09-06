@@ -38,7 +38,7 @@
 
             // Step 5: Load into an array-of-Events
             foreach ($data as $d) {
-                $evt = new Event($d["date"], $d["time"], $d["code"], $d["name"], $d["type"], $d["message"]);
+                $evt = new Event($d["date"], $d["time"], $d["title-1"], $d["title-2"], $d["type"], $d["message"]);
                 $n = $evt->getnum();
                 $this->events[$n] = $evt;
             }
