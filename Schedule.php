@@ -130,7 +130,7 @@
             $this->dhtmltooltips();
 
             //Compute starting element
-            $delta = $this->defautTimezone - $this->newTimezone;
+            $delta = $this->defaultTimezone - $this->newTimezone;
 
             //Get elements row-by-row
             echo "<table id='schedule' border=1>";
