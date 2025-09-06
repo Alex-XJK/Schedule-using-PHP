@@ -97,7 +97,7 @@
             foreach ($blockOut as $day => $times) {
                 $dayNumber = $datMap[$day];
                 foreach ($times as $time) {
-                    $evt = new Event($dayNumber, $time, "", "", "subother");
+                    $evt = new Event($dayNumber, $time, "", "", "other");
                     $n = $evt->getnum();
                     $this->events[$n] = $evt;
                 }
