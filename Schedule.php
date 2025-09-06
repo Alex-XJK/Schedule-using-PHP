@@ -1,91 +1,90 @@
 <?php
-    include_once("Event.php");
+    include_once(__DIR__ . "/Event.php");
 
     class Schedule {
-        protected $sysBase;
-        protected $weekvalue;
+        protected string $sysBase;
+        protected int $weekValue;
 
-        protected $defautTimezone;
-        protected $newTimezone;
+        protected int $defaultTimezone;
+        protected int $newTimezone;
 
-        protected $events = array();
-        protected $notice;
-        protected $modifiedDate = -1;
+        /** @var Event[] */
+        protected array $events = array();
+        protected ?string $notice = null;
+        protected int $modifiedDate = -1;
 
         public function __construct() {
-            //Step 0: Set variables
-            $this->weekvalue = 24*7;
+            // Step 0: Set variables
+            $this->weekValue = 24 * 7;
             $this->sysBase = ".";
 
-            //Step 1: Read json files
+            // Step 1: Read json files
             $regSchedule = "$this->sysBase/regularSchedule.json";
-
             $json_string = file_get_contents($regSchedule);
             $decode_string = json_decode($json_string, true);
 
             $data = $decode_string["schedule"];
             $blockOut = $decode_string["blockOut"];
 
-            if(file_exists("$this->sysBase/temporarySchedule.json")) {
+            if (file_exists("$this->sysBase/temporarySchedule.json")) {
                 $tmpSchedule = "$this->sysBase/temporarySchedule.json";
                 $json_stringT = file_get_contents($tmpSchedule);
                 $decode_stringT = json_decode($json_stringT, true);
                 $dataT = $decode_stringT["schedule"];
-                if(count($dataT)>0){
+                if (count($dataT) > 0) {
                     $data = array_merge($data, $dataT);
                 }
-                //Readin Notice
-                if(isset($decode_stringT["notice"]) && $decode_stringT["notice"] != null) {
+                // Read Notice
+                if (isset($decode_stringT["notice"]) && $decode_stringT["notice"] != null) {
                     $this->notice = $decode_stringT["notice"];
                 }
-                //Get Modification Date
+                // Get Modification Date
                 $this->modifiedDate = filemtime($tmpSchedule);
             }
 
-            //Step 2: Readin timezone and set "new timezone"="default timezone"
-            $this->defautTimezone = $decode_string["timezone"];
-            $this->newTimezone = $this->defautTimezone;
+            // Step 2: Read timezone and set "new timezone" = "default timezone"
+            $this->defaultTimezone = $decode_string["timezone"];
+            $this->newTimezone = $this->defaultTimezone;
 
-            //Step 3: Load Block Out Time into an array-of-Events
+            // Step 3: Load Block Out Time into an array-of-Events
             if ($blockOut != null) {
                 $this->loadBlockOutTime($blockOut);
             }
 
-            //Step 4: Load into an array-of-Events
-            foreach($data as $d){
+            // Step 4: Load into an array-of-Events
+            foreach ($data as $d) {
                 $evt = new Event($d["date"], $d["time"], $d["code"], $d["name"], $d["type"], $d["message"]);
                 $n = $evt->getnum();
                 $this->events[$n] = $evt;
             }
         }
 
-        public function setTimezone($newZone) {
-            if($newZone < -12 || $newZone > 12) {
+        public function setTimezone(int $newZone): void {
+            if ($newZone < -12 || $newZone > 12) {
                 echo "Wrong Timezone, may cause error!";
             }
             $this->newTimezone = $newZone;
         }
 
-        public function setCitycode($city) {
-            $timemap = array (
-                "BJS"   =>  8,
-                "HKT"   =>  8,
-                "UTC"   =>  0,
-                "LON"   =>  0,
-                "NYC"   =>  -5,
-                "CHI"   =>  -6,
-                "LAX"   =>  -8
+        public function setCityCode(string $city): bool {
+            $timemap = array(
+                "BJS"   => 8,
+                "HKT"   => 8,
+                "UTC"   => 0,
+                "LON"   => 0,
+                "NYC"   => -5,
+                "CHI"   => -6,
+                "LAX"   => -8
             );
             if (array_key_exists($city, $timemap)) {
                 $this->setTimezone($timemap[$city]);
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }
 
-        protected function loadBlockOutTime($blockOut) {
+        protected function loadBlockOutTime(array $blockOut): void {
             $datMap = array(
                 "Sunday"    => 0,
                 "Monday"    => 1,
