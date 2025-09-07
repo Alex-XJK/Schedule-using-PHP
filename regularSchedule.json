@@ -78,6 +78,17 @@
 		},
 		{
 			"date": 4,
+			"time": 12,
+			"type": "work",
+			"title-1": "4995 OH",
+			"title-2": "MUD 122",
+			"message": {
+				"line-1": "My TA Office Hours for Design Using C++",
+				"line-2": "12:00 - 13:00"
+			}
+		},
+		{
+			"date": 4,
 			"time": 14,
 			"type": "class",
 			"title-1": "COMS 6118",
