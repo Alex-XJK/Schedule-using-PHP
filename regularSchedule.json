@@ -23,6 +23,17 @@
 		},
 		{
 			"date": 2,
+			"time": 9,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 421",
+			"message": {
+				"line-1": "Vibe Debugging Bi-Weekly Group Synchronization",
+				"line-2": "9:00 - 10:00"
+			}
+		},
+		{
+			"date": 2,
 			"time": 12,
 			"type": "activities",
 			"title-1": "Lab Lunch",
@@ -48,7 +59,7 @@
 			"time": 19,
 			"type": "lecture",
 			"title-1": "Lab Seminar",
-			"title-2": "CSB 451",
+			"title-2": "Davis",
 			"message": {
 				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
 				"line-2": "19:00 - 20:30"
@@ -67,13 +78,35 @@
 		},
 		{
 			"date": 3,
+			"time": 13,
+			"type": "work",
+			"title-1": "TA Sync",
+			"title-2": "CSB 461",
+			"message": {
+				"line-1": "COMS 4113 TA Weekly Meeting",
+				"line-2": "13:00 - 14:00"
+			}
+		},
+		{
+			"date": 3,
 			"time": 14,
 			"type": "discussion",
 			"title-1": "Meeting",
 			"title-2": "online",
 			"message": {
 				"line-1": "LLM Inference Group Synchronization",
-				"line-2": "14:00 - 15:00"
+				"line-2": "14:30 - 15:30"
+			}
+		},
+		{
+			"date": 3,
+			"time": 15,
+			"type": "discussion",
+			"title-1": "",
+			"title-2": "",
+			"message": {
+				"line-1": "LLM Inference Group Synchronization",
+				"line-2": "14:30 - 15:30"
 			}
 		},
 		{
