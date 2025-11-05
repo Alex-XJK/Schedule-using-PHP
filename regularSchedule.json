@@ -1,5 +1,5 @@
 {
-	"timezone": -4,
+	"timezone": -5,
 	"blockOut": {
 		"Sunday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
 		"Monday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
@@ -118,6 +118,17 @@
 			"message": {
 				"line-1": "DAPLab Weekly Coffee",
 				"line-2": "11:00 - 11:45"
+			}
+		},
+		{
+			"date": 4,
+			"time": 12,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 421",
+			"message": {
+				"line-1": "Constraints Group Synchronization",
+				"line-2": "12:00 - 12:30"
 			}
 		},
 		{
