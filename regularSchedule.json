@@ -12,24 +12,13 @@
 	"schedule":[
 		{
 			"date": 1,
-			"time": 15,
+			"time": 14,
 			"type": "discussion",
 			"title-1": "Meeting",
 			"title-2": "MUD 421",
 			"message": {
 				"line-1": "AI Forking Group Synchronization",
-				"line-2": "15:15 - 16:00"
-			}
-		},
-		{
-			"date": 2,
-			"time": 9,
-			"type": "discussion",
-			"title-1": "Meeting",
-			"title-2": "MUD 421",
-			"message": {
-				"line-1": "Vibe Debugging Bi-Weekly Group Synchronization",
-				"line-2": "9:00 - 10:00"
+				"line-2": "14:00 - 15:00"
 			}
 		},
 		{
@@ -55,40 +44,62 @@
 			}
 		},
 		{
-			"date": 2,
-			"time": 19,
+			"date": 4,
+			"time": 10,
+			"type": "activities",
+			"title-1": "Lab Coffee",
+			"title-2": "DSI",
+			"message": {
+				"line-1": "DAPLab Weekly Coffee",
+				"line-2": "10:00 - 10:45"
+			}
+		},
+		{
+			"date": 4,
+			"time": 11,
 			"type": "lecture",
 			"title-1": "Lab Seminar",
 			"title-2": "Davis",
 			"message": {
 				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
-				"line-2": "19:00 - 20:30"
+				"line-2": "11:00 - 12:30"
 			}
 		},
 		{
-			"date": 2,
-			"time": 20,
+			"date": 4,
+			"time": 12,
 			"type": "lecture",
 			"title-1": "",
 			"title-2": "",
 			"message": {
 				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
-				"line-2": "19:00 - 20:30"
+				"line-2": "11:00 - 12:30"
 			}
 		},
 		{
-			"date": 3,
+			"date": 4,
 			"time": 13,
-			"type": "work",
-			"title-1": "TA Sync",
-			"title-2": "CSB 461",
+			"type": "activities",
+			"title-1": "SNL Lunch",
+			"title-2": "MUD 13FL",
 			"message": {
-				"line-1": "COMS 4113 TA Weekly Meeting",
+				"line-1": "SNL Weekly Lunch",
 				"line-2": "13:00 - 14:00"
 			}
 		},
 		{
-			"date": 3,
+			"date": 4,
+			"time": 16,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 421",
+			"message": {
+				"line-1": "Constraints Group Synchronization",
+				"line-2": "16:00 - 16:30"
+			}
+		},
+		{
+			"date": 5,
 			"time": 14,
 			"type": "discussion",
 			"title-1": "Meeting",
@@ -99,7 +110,7 @@
 			}
 		},
 		{
-			"date": 3,
+			"date": 5,
 			"time": 15,
 			"type": "discussion",
 			"title-1": "",
@@ -107,105 +118,6 @@
 			"message": {
 				"line-1": "LLM Inference Group Synchronization",
 				"line-2": "14:30 - 15:30"
-			}
-		},
-		{
-			"date": 4,
-			"time": 11,
-			"type": "activities",
-			"title-1": "Lab Coffee",
-			"title-2": "DSI",
-			"message": {
-				"line-1": "DAPLab Weekly Coffee",
-				"line-2": "11:00 - 11:45"
-			}
-		},
-		{
-			"date": 4,
-			"time": 12,
-			"type": "discussion",
-			"title-1": "Meeting",
-			"title-2": "MUD 421",
-			"message": {
-				"line-1": "Constraints Group Synchronization",
-				"line-2": "12:00 - 12:30"
-			}
-		},
-		{
-			"date": 4,
-			"time": 13,
-			"type": "work",
-			"title-1": "4995 OH",
-			"title-2": "MUD 122",
-			"message": {
-				"line-1": "My TA Office Hours for Design Using C++",
-				"line-2": "13:00 - 14:00"
-			}
-		},
-		{
-			"date": 4,
-			"time": 14,
-			"type": "class",
-			"title-1": "COMS 6118",
-			"title-2": "MUD 825",
-			"message": {
-				"line-1": "<b>Operating System II</b><br>Prof. Jason Nieh",
-				"line-2": "14:10 - 16:00"
-			}
-		},
-		{
-			"date": 4,
-			"time": 15,
-			"type": "class",
-			"title-1": "",
-			"title-2": "",
-			"message": {
-				"line-1": "<b>Operating System II</b><br>Prof. Jason Nieh",
-				"line-2": "14:10 - 16:00"
-			}
-		},
-		{
-			"date": 5,
-			"time": 10,
-			"type": "work",
-			"title-1": "TA Classes",
-			"title-2": "",
-			"message": {
-				"line-1": "<b>Design Using C++</b> Prof. Bjarne Stroustrup",
-				"line-2": "<b>Distributed Systems</b> Prof. Roxana Geambasu<br>10:10 - 12:40"
-			}
-		},
-		{
-			"date": 5,
-			"time": 11,
-			"type": "work",
-			"title-1": "",
-			"title-2": "",
-			"message": {
-				"line-1": "<b>Design Using C++</b><br>Prof. Bjarne Stroustrup",
-				"line-2": "<b>Distributed Systems</b><br>Prof. Roxana Geambasu<br>10:10 - 12:40"
-			}
-		},
-		{
-			"date": 5,
-			"time": 12,
-			"type": "work",
-			"title-1": "",
-			"title-2": "",
-			"message": {
-				"line-1": "<b>Design Using C++</b><br>Prof. Bjarne Stroustrup",
-				"line-2": "<b>Distributed Systems</b><br>Prof. Roxana Geambasu<br>10:10 - 12:40"
-			}
-		},
-		{
-			"date": 5,
-			"time": 15,
-			"type": "work",
-			"title-1": "4113 OH",
-			"title-2": "CSB 488",
-			"message": {
-				"line-1": "My TA Office Hours for COMS 4113 (Grading)",
-				"line-2": "15:00 - 16:00"
 			}
 		}
 	]
