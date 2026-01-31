@@ -1,5 +1,5 @@
 {
-	"timezone": -4,
+	"timezone": -5,
 	"blockOut": {
 		"Sunday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
 		"Monday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
@@ -11,80 +11,113 @@
 	},
 	"schedule":[
 		{
+			"date": 1,
+			"time": 14,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 421",
+			"message": {
+				"line-1": "AI Forking Group Synchronization",
+				"line-2": "14:00 - 15:00"
+			}
+		},
+		{
 			"date": 2,
 			"time": 12,
-			"type": "discussion",
-			"code": "Lab Lunch",
-			"name": "CSB 480",
+			"type": "activities",
+			"title-1": "Lab Lunch",
+			"title-2": "CSB 453",
 			"message": {
-				"EN": "DAPLab Weekly Lunch",
-				"CH": "12:30 - 13:30"
+				"line-1": "DAPLab Weekly Lunchtime Seminar",
+				"line-2": "12:00 - 13:30"
 			}
 		},
 		{
 			"date": 2,
 			"time": 13,
-			"type": "discussion",
-			"code": "",
-			"name": "",
+			"type": "activities",
+			"title-1": "",
+			"title-2": "",
 			"message": {
-				"EN": "DAPLab Weekly Lunch",
-				"CH": "12:30 - 13:30"
+				"line-1": "DAPLab Weekly Lunchtime Seminar",
+				"line-2": "12:00 - 13:30"
 			}
 		},
 		{
-			"date": 3,
-			"time": 14,
-			"type": "placement",
-			"code": "Meeting",
-			"name": "Zoom",
+			"date": 4,
+			"time": 10,
+			"type": "activities",
+			"title-1": "Lab Coffee",
+			"title-2": "DSI",
 			"message": {
-				"EN": "RL Meeting with Daksh",
-				"CH": "14:30 - 15:30"
-			}
-		},
-		{
-			"date": 3,
-			"time": 15,
-			"type": "placement",
-			"code": "",
-			"name": "",
-			"message": {
-				"EN": "RL Meeting with Daksh",
-				"CH": "14:30 - 15:30"
+				"line-1": "DAPLab Weekly Coffee",
+				"line-2": "10:00 - 10:45"
 			}
 		},
 		{
 			"date": 4,
 			"time": 11,
+			"type": "lecture",
+			"title-1": "Lab Seminar",
+			"title-2": "Davis",
+			"message": {
+				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
+				"line-2": "11:00 - 12:30"
+			}
+		},
+		{
+			"date": 4,
+			"time": 12,
+			"type": "lecture",
+			"title-1": "",
+			"title-2": "",
+			"message": {
+				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
+				"line-2": "11:00 - 12:30"
+			}
+		},
+		{
+			"date": 4,
+			"time": 13,
+			"type": "activities",
+			"title-1": "SNL Lunch",
+			"title-2": "MUD 13FL",
+			"message": {
+				"line-1": "SNL Weekly Lunch",
+				"line-2": "13:00 - 14:00"
+			}
+		},
+		{
+			"date": 4,
+			"time": 16,
 			"type": "discussion",
-			"code": "Lab Coffee",
-			"name": "",
+			"title-1": "Meeting",
+			"title-2": "MUD 421",
 			"message": {
-				"EN": "DAPLab Weekly Coffee",
-				"CH": "11:00 - 11:45"
+				"line-1": "Constraints Group Synchronization",
+				"line-2": "16:00 - 16:30"
 			}
 		},
 		{
-			"date": 4,
+			"date": 5,
 			"time": 14,
-			"type": "placement",
-			"code": "Meeting",
-			"name": "Google",
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "online",
 			"message": {
-				"EN": "LLM Inference Group Synchronization",
-				"CH": "14:00 - 15:00"
+				"line-1": "LLM Inference Group Synchronization",
+				"line-2": "14:30 - 15:30"
 			}
 		},
 		{
-			"date": 4,
+			"date": 5,
 			"time": 15,
-			"type": "placement",
-			"code": "Meeting",
-			"name": "MUD 421",
+			"type": "discussion",
+			"title-1": "",
+			"title-2": "",
 			"message": {
-				"EN": "AI Forking Group Synchronization",
-				"CH": "15:00 - 16:00"
+				"line-1": "LLM Inference Group Synchronization",
+				"line-2": "14:30 - 15:30"
 			}
 		}
 	]
