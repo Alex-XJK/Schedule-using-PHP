@@ -1,10 +1,7 @@
 <?php
-include_once(__DIR__ . "/ScheduleRemote.php");
+include_once(__DIR__ . "/ScheduleICal.php");
 
-$schedule = new ScheduleRemote(
-    "https://raw.githubusercontent.com/Alex-XJK/Schedule-using-PHP/refs/heads/deployment/regularSchedule.json",
-    "https://raw.githubusercontent.com/Alex-XJK/Schedule-using-PHP/refs/heads/deployment/temporarySchedule.json"
-);
+$schedule = new ScheduleICal('https://xxx/basic.ics');
 
 // Dynamic Timezone settings
 if (isset($_GET["zone"])) {

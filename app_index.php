@@ -3,7 +3,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Headers: Content-Type");
 
+$prefix = '/~alexxu/sched/';
 $path = @parse_url($_SERVER['REQUEST_URI'])['path'] ?? '/';
+$path = substr($path, strlen($prefix) - 1);
+
 switch ($path) {
     case '/':
         echo "Welcome to the Alex's PHP Web App!";

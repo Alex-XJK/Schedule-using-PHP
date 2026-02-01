@@ -1,11 +1,11 @@
 <?php
     class Event {
-    private int $timestamp;
-    private string $title1;
-    private string $title2;
-    private string $type;
-    private string $msgLine1 = '';
-    private string $msgLine2 = '';
+        private int $timestamp;
+        private string $title1;
+        private string $title2;
+        private string $type;
+        private string $msgLine1 = '';
+        private string $msgLine2 = '';
 
         public static array $color = array(
             "free"          =>  "#F6F5EE;",
@@ -16,17 +16,18 @@
             "discussion"    =>  "#B7DEE8;",
             "exam"          =>  "#DA9694;",
             "work"          =>  "#E5BBF8;",
-            "other"         =>  "#C2C2C2;"
+            "other"         =>  "#C2C2C2;",
+            "calendar"      =>  "#C2C2C2;"
         );
 
-    /**
-     * @param int $D  Day of week (0-6)
-     * @param int $T  Hour of day (0-23)
-     * @param string $C  Code
-     * @param string $N  Name
-     * @param string $P  Type
-     * @param array|null $M  Message array, contains EN/CH
-     */
+        /**
+         * @param int $D  Day of week (0-6)
+         * @param int $T  Hour of day (0-23)
+         * @param string $C  Code
+         * @param string $N  Name
+         * @param string $P  Type
+         * @param array|null $M  Message array, contains EN/CH
+         */
         public function __construct(int $D, int $T, string $title1, string $title2, string $P, ?array $M = null) {
             $this->timestamp = ($D * 24) + $T;
             $this->title1 = $title1;
@@ -56,6 +57,10 @@
 
         public function getnum(): int {
             return $this->timestamp;
+        }
+
+        public function dump(): string {
+            return "Event: [Timestamp: {$this->timestamp}, Title1: {$this->title1}, Title2: {$this->title2}, Type: {$this->type}, Msg1: {$this->msgLine1}, Msg2: {$this->msgLine2}]\n";
         }
     }
 ?>
