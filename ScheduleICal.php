@@ -11,12 +11,17 @@
          * @param string $icalUrl URL of the iCal file
          */
         public function __construct(string $icalUrl) {
+            // Initialize JSON schedule first
             parent::__construct();
+
+            // Load Google iCal data
             $this->icalUrl = $icalUrl;
             $icp = new ICalParser($this->icalUrl);
             $calendarEvents = $icp->getGoogleCalendarEvents();
             if ($calendarEvents !== null) {
                 $this->mergeCalendarEvents($calendarEvents);
+                // Set modification time to now since we just pulled new data
+                $this->modifiedDate = time();
             }
         }
 

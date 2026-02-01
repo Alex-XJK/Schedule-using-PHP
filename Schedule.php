@@ -140,7 +140,7 @@
             for ($hour = 0; $hour < 24; $hour++) {
                 echo "<tr id='hour".$hour."'>";
                 //Print left header
-                echo "<td class='time' style='background: #00f7ff;'>$hour:00<br>$hour:50</td>";
+                echo "<td class='time' style='background: #00f7ff;'>".sprintf('%02d', $hour)."</td>";
                 for ($day = 0; $day < 7; $day++) {
                     //The sequencial id of table cells 0~23 24~47 ...
                     $idx = ($day * 24) + $hour;
