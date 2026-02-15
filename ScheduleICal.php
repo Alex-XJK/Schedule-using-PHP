@@ -5,6 +5,7 @@
 
     class ScheduleICal extends Schedule {
         private string $icalUrl;
+        private ICalParser $icp;
 
         /**
          * Constructor
@@ -16,12 +17,10 @@
 
             // Load Google iCal data
             $this->icalUrl = $icalUrl;
-            $icp = new ICalParser($this->icalUrl);
-            $calendarEvents = $icp->getGoogleCalendarEvents();
+            $this->icp = new ICalParser($this->icalUrl);
+            $calendarEvents = $this->icp->getGoogleCalendarEvents();
             if ($calendarEvents !== null) {
                 $this->mergeCalendarEvents($calendarEvents);
-                // Set modification time to now since we just pulled new data
-                $this->modifiedDate = time();
             }
         }
 
@@ -35,6 +34,48 @@
                     $this->events[$timestamp] = $event;
                 }
             }
+        }
+
+        /**
+        * displayModification - Override to append cache status to modification time
+        */
+        protected function displayModification() {
+            $modiString = "DB: ";
+            if($this->modifiedDate == -1) {
+                $modiString .= "<span style='color: gray;'>Unrecognized</span>";
+            }
+            else {
+                $now = new DateTime();
+                $modifiedDateTime = (new DateTime())->setTimestamp($this->modifiedDate);
+
+                // Calculate the difference in weeks
+                $interval = $now->diff($modifiedDateTime);
+                $weeksAgo = (int)floor($interval->days / 7);
+
+                // Determine color and message based on weeks
+                $modiString .= match(true) {
+                    $weeksAgo === 0 => "<span style='color: green;'>This week</span>",
+                    $weeksAgo === 1 => "<span style='color: gold;'>1 week</span>",
+                    $weeksAgo === 2 => "<span style='color: orange;'>2 weeks</span>",
+                    $weeksAgo >= 3 => "<span style='color: red;'>{$weeksAgo} weeks</span>",
+                    default => "<span style='color: gray;'>Unknown</span>"
+                };
+            }
+            $modiString .= ", iCal: ";
+            $cacheStatus = $this->icp->getCacheStatus();
+            if ($cacheStatus !== false) {
+                $minutesAgo = intdiv((new DateTime())->getTimestamp() - $cacheStatus->getTimestamp(), 60);
+                if ($minutesAgo < 5) {
+                    $modiString .= "<span style='color: gold;'>{$minutesAgo} min</span>";
+                }
+                else {
+                    $modiString .= "<span style='color: red;'>{$minutesAgo} min</span>";
+                }   
+            }
+            else {
+                $modiString .= "<span style='color: green;'>Fetched</span>";
+            }
+            return $modiString;
         }
     }
 ?>

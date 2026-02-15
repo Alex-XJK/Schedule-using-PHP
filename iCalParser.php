@@ -4,6 +4,8 @@
     class ICalParser {
         private string $icalUrl;
         private string $timezoneString = 'America/New_York';
+        private bool $isCached = false;
+        private DateTime $cacheTime;
 
         /**
          * Constructor
@@ -26,6 +28,13 @@
             
             return $calendarEvents;
         }
+
+        /**
+         * Get the cache time if data was fetched from cache, otherwise return false
+         */
+        public function getCacheStatus(): DateTime|false {
+            return $this->isCached ? $this->cacheTime : false;
+        }
         
         /**
          * Fetch iCal data with caching
@@ -35,11 +44,14 @@
             $cacheTime = 900; // 15 minutes
             
             if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $cacheTime)) {
+                $this->isCached = true;
+                $this->cacheTime = new DateTime('@' . filemtime($cacheFile));
                 return file_get_contents($cacheFile);
             }
             
             $icalData = @file_get_contents($this->icalUrl);
             if ($icalData !== false) {
+                $this->isCached = false;
                 file_put_contents($cacheFile, $icalData);
             }
             
@@ -76,19 +88,57 @@
                     
                     // Process the event
                     if (isset($currentEvent['DTSTART'])) {
+                        // Check attendance status - only include ACCEPTED or TENTATIVE
+                        $partstat = $currentEvent['PARTSTAT'] ?? 'ACCEPTED';
+                        if ($partstat === 'DECLINED') {
+                            continue; // Skip declined events
+                        }
+                        
                         $eventStart = $this->parseICalDateTime($currentEvent['DTSTART']);
+                        $eventEnd = null;
+                        
+                        // Parse end time if available
+                        if (isset($currentEvent['DTEND'])) {
+                            $eventEnd = $this->parseICalDateTime($currentEvent['DTEND']);
+                        }
                         
                         if ($eventStart !== false) {
                             // Check if event is in current week
                             if ($eventStart >= $weekStart && $eventStart < $weekEnd) {
-                                $dayOfWeek = (int)$eventStart->format('w'); // 0-6
-                                $hour = (int)$eventStart->format('H'); // 0-23
+                                // If no end time, assume 1 hour duration
+                                if ($eventEnd === false || $eventEnd === null) {
+                                    $eventEnd = (clone $eventStart)->modify('+1 hour');
+                                }
                                 
-                                // Create Event object
-                                // $summary = $currentEvent['SUMMARY'] ?? 'Busy';
-                                $evt = new Event($dayOfWeek, $hour, 'Busy', '', 'calendar');
-                                $evtNum = $evt->getnum();
-                                $events[$evtNum] = $evt;
+                                // Create Event objects for each hour slot the event occupies
+                                // We need to mark an hour as busy if the event touches it at all
+                                $startHour = (clone $eventStart)->setTime((int)$eventStart->format('H'), 0, 0);
+                                $endHour = (clone $eventEnd)->setTime((int)$eventEnd->format('H'), 0, 0);
+                                
+                                // If event ends past the hour mark (e.g., 18:15), include that hour
+                                if ((int)$eventEnd->format('i') > 0 || (int)$eventEnd->format('s') > 0) {
+                                    $endHour->modify('+1 hour');
+                                }
+                                
+                                $currentSlot = clone $startHour;
+                                
+                                while ($currentSlot < $endHour) {
+                                    $slotDay = (int)$currentSlot->format('w'); // 0-6
+                                    $slotHour = (int)$currentSlot->format('H'); // 0-23
+                                    
+                                    // Create Event object for this hour
+                                    $evt = new Event($slotDay, $slotHour, 'Busy', '', 'calendar');
+                                    $evtNum = $evt->getnum();
+                                    $events[$evtNum] = $evt;
+                                    
+                                    // Move to next hour slot
+                                    $currentSlot->modify('+1 hour');
+                                    
+                                    // Stop if we've gone past the current week
+                                    if ($currentSlot >= $weekEnd) {
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
