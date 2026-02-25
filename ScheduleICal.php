@@ -40,7 +40,7 @@
         * displayModification - Override to append cache status to modification time
         */
         protected function displayModification() {
-            $modiString = "DB: ";
+            $modiString = "<small>DB: ";
             if($this->modifiedDate == -1) {
                 $modiString .= "<span style='color: gray;'>Unrecognized</span>";
             }
@@ -75,6 +75,7 @@
             else {
                 $modiString .= "<span style='color: green;'>Fetched</span>";
             }
+            $modiString .= "</small>";
             return $modiString;
         }
     }

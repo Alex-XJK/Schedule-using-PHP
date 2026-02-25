@@ -1,24 +1,35 @@
 {
 	"timezone": -5,
 	"blockOut": {
-		"Sunday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
+		"Sunday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 23],
 		"Monday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
 		"Tuesday":      [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
 		"Wednesday":    [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
 		"Thursday":     [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
 		"Friday":       [0, 1, 2, 3, 4, 5, 6, 7, 8, 23],
-		"Saturday":     [0, 1, 2, 3, 4, 5, 6, 7, 8, 23]
+		"Saturday":     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 23]
 	},
 	"schedule":[
 		{
 			"date": 1,
-			"time": 14,
+			"time": 11,
 			"type": "discussion",
 			"title-1": "Meeting",
 			"title-2": "MUD 421",
 			"message": {
 				"line-1": "AI Forking Group Synchronization",
-				"line-2": "14:00 - 15:00"
+				"line-2": "11:00 - 11:30"
+			}
+		},
+		{
+			"date": 1,
+			"time": 12,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 406",
+			"message": {
+				"line-1": "Constraints Students Meeting",
+				"line-2": "12:00 - 12:30"
 			}
 		},
 		{

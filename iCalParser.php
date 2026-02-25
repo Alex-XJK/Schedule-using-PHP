@@ -110,6 +110,9 @@
                                     $eventEnd = (clone $eventStart)->modify('+1 hour');
                                 }
                                 
+                                // Determine event type from DESCRIPTION prefix if present
+                                $eventType = $this->extractTypeFromDescription($currentEvent['DESCRIPTION'] ?? '');
+
                                 // Create Event objects for each hour slot the event occupies
                                 // We need to mark an hour as busy if the event touches it at all
                                 $startHour = (clone $eventStart)->setTime((int)$eventStart->format('H'), 0, 0);
@@ -127,7 +130,7 @@
                                     $slotHour = (int)$currentSlot->format('H'); // 0-23
                                     
                                     // Create Event object for this hour
-                                    $evt = new Event($slotDay, $slotHour, 'Busy', '', 'calendar');
+                                    $evt = new Event($slotDay, $slotHour, '', '', $eventType);
                                     $evtNum = $evt->getnum();
                                     $events[$evtNum] = $evt;
                                     
@@ -192,6 +195,25 @@
             }
             
             return false;
+        }
+
+        /**
+         * Extract an event type from the DESCRIPTION field using the pattern:
+         * "iCalCtype#<type>..." at the very beginning of the description.
+         * Only returns types that exist in Event::$color; otherwise falls back to 'calendar'.
+         */
+        protected function extractTypeFromDescription(?string $description): string {
+            if ($description === null) {
+                return 'calendar';
+            }
+            $desc = trim($description);
+            if (preg_match('/^iCalCtype#([A-Za-z0-9_-]+)/', $desc, $m)) {
+                $candidate = strtolower($m[1]);
+                if (isset(Event::$color[$candidate])) {
+                    return $candidate;
+                }
+            }
+            return 'calendar';
         }
     }
 ?>
