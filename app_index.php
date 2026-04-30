@@ -18,6 +18,11 @@ switch ($path) {
         $tz_res['php_version'] = phpversion();
         echo json_encode($tz_res, JSON_PRETTY_PRINT);
         break;
+    case '/ip-debug':
+        header('Content-Type: application/json');
+        include_once(__DIR__ . "/utils.php");
+        echo json_encode(getIpDebugInfo(), JSON_PRETTY_PRINT);
+        break;
     case '/schedule':
         include_once(__DIR__ . "/scheduleInTimezone.php");
         break;
