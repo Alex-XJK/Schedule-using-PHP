@@ -1,5 +1,28 @@
 {
     "notice": "",
     "schedule": [],
-    "backup": []
+    "backup": [
+		{
+			"date": 4,
+			"time": 11,
+			"type": "lecture",
+			"title-1": "Lab Seminar",
+			"title-2": "Davis",
+			"message": {
+				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
+				"line-2": "11:00 - 12:30"
+			}
+		},
+		{
+			"date": 4,
+			"time": 12,
+			"type": "lecture",
+			"title-1": "",
+			"title-2": "",
+			"message": {
+				"line-1": "DAPLab Bi-Weekly Entrepreneurship Series",
+				"line-2": "11:00 - 12:30"
+			}
+		}
+	]
 }
