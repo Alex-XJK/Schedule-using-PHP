@@ -4,19 +4,22 @@
     class ICalParser {
         private string $icalUrl;
         private string $timezoneString = 'America/New_York';
+        private int $weekOffset;
         private bool $isCached = false;
         private DateTime $cacheTime;
 
         /**
          * Constructor
          * @param string $icalUrl URL of the iCal file
+         * @param int $weekOffset Number of weeks from the current week to display
          */
-        public function __construct(string $icalUrl) {
+        public function __construct(string $icalUrl, int $weekOffset = 0) {
             $this->icalUrl = $icalUrl;
+            $this->weekOffset = $weekOffset;
         }
 
         /**
-         * Fetch and merge Google Calendar events for the current week
+         * Fetch and merge Google Calendar events for the selected week
          */
         public function getGoogleCalendarEvents(): ?array {
             $icalData = $this->fetchICalData();
@@ -59,19 +62,22 @@
         }
 
         /**
-         * Parse iCal data and extract events for current week only
+         * Parse iCal data and extract events for the selected week only
          * @return Event[] Array of Event objects indexed by timestamp
          */
         protected function parseICalForCurrentWeek(string $icalData): array {
             $events = [];
             $lines = explode("\n", $icalData);
 
-            // Get current week boundaries
+            // Get selected week boundaries
             $now = new DateTime();
             $now->setTimezone(new DateTimeZone($this->timezoneString));
 
             $dayOfWeek = (int)$now->format('w'); // 0 (Sunday) to 6 (Saturday)
             $weekStart = (clone $now)->modify("-{$dayOfWeek} days")->setTime(0, 0, 0);
+            if ($this->weekOffset !== 0) {
+                $weekStart->modify("{$this->weekOffset} weeks");
+            }
             $weekEnd = (clone $weekStart)->modify('+7 days');
 
             $inEvent = false;
@@ -103,7 +109,7 @@
                         }
 
                         if ($eventStart !== false) {
-                            // Check if event is in current week
+                            // Check if event is in selected week
                             if ($eventStart >= $weekStart && $eventStart < $weekEnd) {
                                 // If no end time, assume 1 hour duration
                                 if ($eventEnd === false || $eventEnd === null) {
@@ -137,7 +143,7 @@
                                     // Move to next hour slot
                                     $currentSlot->modify('+1 hour');
 
-                                    // Stop if we've gone past the current week
+                                    // Stop if we've gone past the selected week
                                     if ($currentSlot >= $weekEnd) {
                                         break;
                                     }

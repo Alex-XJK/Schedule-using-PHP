@@ -10,14 +10,16 @@
         /**
          * Constructor
          * @param string $icalUrl URL of the iCal file
+         * @param int $weekOffset Number of weeks from the current week to display
          */
-        public function __construct(string $icalUrl) {
+        public function __construct(string $icalUrl, int $weekOffset = 0) {
             // Initialize JSON schedule first
             parent::__construct();
+            $this->setWeekOffset($weekOffset);
 
             // Load Google iCal data
             $this->icalUrl = $icalUrl;
-            $this->icp = new ICalParser($this->icalUrl);
+            $this->icp = new ICalParser($this->icalUrl, $weekOffset);
             $calendarEvents = $this->icp->getGoogleCalendarEvents();
             if ($calendarEvents !== null) {
                 $this->mergeCalendarEvents($calendarEvents);

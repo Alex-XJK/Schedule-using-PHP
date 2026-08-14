@@ -7,6 +7,7 @@
 
         protected int $defaultTimezone;
         protected int $newTimezone;
+        protected int $weekOffset = 0;
 
         /** @var Event[] */
         protected array $events = array();
@@ -64,6 +65,10 @@
                 echo "Wrong Timezone, may cause error!";
             }
             $this->newTimezone = $newZone;
+        }
+
+        public function setWeekOffset(int $weekOffset): void {
+            $this->weekOffset = $weekOffset;
         }
 
         public function setCityCode(string $city): bool {
@@ -171,12 +176,20 @@
             if($this->notice != null) {
                 echo "<tr><td colspan='8'>$this->notice</td></tr>";
             }
-            $timezonesec = time()+($this->newTimezone*60*60);
-            $timestr = date("Y M(m) d l, H:i:s", $timezonesec);
+            $timezonesec = time()+($this->newTimezone*60*60)+($this->weekOffset*7*24*60*60);
             $timezoneSymbol = ($this->newTimezone > 0)? "+".$this->newTimezone : $this->newTimezone;
+            if ($this->weekOffset === 0) {
+                $timestr = date("Y M(m) d l, H:i:s", $timezonesec);
+                $footerLabel = "Local time in UTC $timezoneSymbol : $timestr";
+            }
+            else {
+                $weekStart = $timezonesec - ((int)date("w", $timezonesec) * 24 * 60 * 60);
+                $weekEnd = $weekStart + (6 * 24 * 60 * 60);
+                $footerLabel = "Week of " . date("M. j", $weekStart) . " - " . date("M. j", $weekEnd);
+            }
             $modification = $this->displayModification();
             echo "<tr>";
-            echo "<td colspan='6'>Local time in UTC $timezoneSymbol : $timestr</td>";
+            echo "<td colspan='6'>$footerLabel</td>";
             echo "<td colspan='2'>$modification</td>";
             echo "</tr>";
             echo "</tfoot>";
@@ -189,6 +202,9 @@
             $targetW = date("w", $timezonesec);
             $targetH = date("H", $timezonesec);
             $targetID = ($targetW*24)+$targetH;
+            if ($this->weekOffset !== 0) {
+                return;
+            }
             echo "<script>";
             echo "function changeColor() {var elem=document.getElementById('c$targetID'); elem.style.border ='5px dashed red';}";
             echo "window.onload = changeColor";

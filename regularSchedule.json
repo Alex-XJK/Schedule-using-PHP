@@ -12,13 +12,24 @@
 	"schedule":[
 		{
 			"date": 1,
+			"time": 11,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 425",
+			"message": {
+				"line-1": "Waypoint Students Meeting",
+				"line-2": "11:00 - 11:50"
+			}
+		},
+		{
+			"date": 1,
 			"time": 12,
 			"type": "discussion",
 			"title-1": "Meeting",
 			"title-2": "DSI",
 			"message": {
 				"line-1": "Constraints Students Meeting",
-				"line-2": "12:00 - 12:30"
+				"line-2": "12:00 - 12:50"
 			}
 		},
 		{
@@ -83,8 +94,19 @@
 			"title-1": "Meeting",
 			"title-2": "MUD 421",
 			"message": {
-				"line-1": "Branching Web Group Synchronization",
+				"line-1": "Waypoint Group Synchronization",
 				"line-2": "15:00 - 15:45"
+			}
+		},
+		{
+			"date": 5,
+			"time": 12,
+			"type": "discussion",
+			"title-1": "Meeting",
+			"title-2": "MUD 421",
+			"message": {
+				"line-1": "Branching Web Group Synchronization",
+				"line-2": "12:00 - 12:45"
 			}
 		}
 	]

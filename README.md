@@ -31,6 +31,7 @@ $timemap = array (
 );
 ```
 - `zone=N` set the local timezone from `-12` to `12`. Timezone values and city codes are not supposed to appear simultaneously, yet when they do appear simultaneously, the time zone values are more deterministic.
+- `week=N` shifts the displayed week by `N` weeks. Use `week=0` for the current week, `week=1` for next week, and `week=-1` for last week. Local JSON events are treated as recurring weekly events, while iCal events are loaded from the selected week.
 - `width=X` where 'X' follows the CSS style. It sets the width of the schedule table.
 
 Example:
